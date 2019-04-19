@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DocumentConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="abc.abc">
+  <Tab>
+    <NodeTab 面板名称="测试0">
+      <Plugin>Test</Plugin>
+      <ImagePath>Imge</ImagePath>
+      <IsEnabled>false</IsEnabled>
+      <IsVisible>false</IsVisible>
+    </NodeTab>
+    <NodeTab 面板名称="测试1">
+      <Plugin>PluginName</Plugin>
+      <ImagePath>Imge</ImagePath>
+      <IsEnabled>false</IsEnabled>
+      <IsVisible>false</IsVisible>
+    </NodeTab>
+    <NodeTab 面板名称="测试2">
+      <Plugin>PluginName</Plugin>
+      <ImagePath>Imge</ImagePath>
+      <IsEnabled>false</IsEnabled>
+      <IsVisible>false</IsVisible>
+    </NodeTab>
+    <NodeTab 面板名称="测试3">
+      <Plugin>PluginName</Plugin>
+      <ImagePath>Imge</ImagePath>
+      <IsEnabled>false</IsEnabled>
+      <IsVisible>false</IsVisible>
+    </NodeTab>
+    <NodeTab 面板名称="测试4">
+      <Plugin>PluginName</Plugin>
+      <ImagePath>Imge</ImagePath>
+      <IsEnabled>false</IsEnabled>
+      <IsVisible>false</IsVisible>
+    </NodeTab>
+  </Tab>
+</DocumentConfig>

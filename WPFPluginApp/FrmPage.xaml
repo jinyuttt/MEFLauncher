@@ -10,7 +10,7 @@
         <XmlDataProvider  x:Key="pXML" XPath="/Products"  IsAsynchronous="True" Source="store.xml"></XmlDataProvider>
     </Window.Resources>
     <Grid>
-        <ListBox x:Name="lstXML" DisplayMemberPath="ModelName" ItemsSource="{Binding Source={StaticResource pXML},XPath=Product}" HorizontalAlignment="Left" Height="276" Margin="95,28,0,0" VerticalAlignment="Top" Width="568"/>
+        <ListBox x:Name="lstXML" DisplayMemberPath="ModelName" ItemsSource="{Binding Source={StaticResource pXML},XPath=Product}" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" />
 
     </Grid>
 </Window>

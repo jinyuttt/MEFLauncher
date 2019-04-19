@@ -10,7 +10,7 @@
         <XmlDataProvider x:Key="pXMLProvider" XPath="/Products" IsAsynchronous="True" Source="store.xml" ></XmlDataProvider>
     </UserControl.Resources>
     <Grid>
-        <ListView Name="lstv" ItemsSource="{Binding Source={StaticResource pXMLProvider},XPath=Product}" HorizontalAlignment="Left" Height="416" Margin="10,0,0,0" VerticalAlignment="Top" Width="780">
+        <ListView Name="lstv" ItemsSource="{Binding Source={StaticResource pXMLProvider},XPath=Product}" HorizontalAlignment="Left"  Margin="10,0,0,0" VerticalAlignment="Top" >
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="序列号" DisplayMemberBinding="{Binding XPath=ProductID}" Width="120" />

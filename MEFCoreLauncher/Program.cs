@@ -1,44 +1,17 @@
-﻿using MEFLib;
-using MEFLoader;
-using System;
-using System.Collections.Generic;
-using System.Composition.Convention;
-using System.Composition.Hosting;
-using System.IO;
-using System.Linq;
-using System.Runtime.Loader;
-
+﻿using LauncherCommon;
+using System.Threading;
 
 namespace MEFCoreLoader
 {
     class Program
     {
+        static readonly AutoResetEvent resetEvent = new AutoResetEvent(false);
         static void Main(string[] args)
         {
-            CatalogLoader loader = new CatalogLoader();
-            loader.DefaultLoader<IPlugin>();
-           var obj= loader.GetObj<IPlugin>();
-            obj.Start();
-            Console.ReadKey();
+            ConsoleHepler.Hide("MEFLauncher");
+            LauncherHelper.Run(resetEvent);
+
+            resetEvent.WaitOne();
         }
-
-        //private void Loader()
-        //{
-        //    var assembiles = Directory.GetFiles(AppContext.BaseDirectory, "*.dll", SearchOption.TopDirectoryOnly)
-        //   .Select(AssemblyLoadContext.Default.LoadFromAssemblyPath);
-        //    var conventions = new ConventionBuilder();
-        //    conventions.ForTypesDerivedFrom<IMainView>()
-        //        .Export<IMainView>().Shared();
-
-        //    var configuration = new ContainerConfiguration()
-        //        .WithAssemblies(assembiles, conventions);
-
-        //    using (var container = configuration.CreateContainer())
-        //    {
-        //        IEnumerable<IMainView> senders = container.GetExports<IMainView>();
-        //    }
-
-        //}
-
     }
 }

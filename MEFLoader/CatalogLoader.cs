@@ -35,7 +35,11 @@ namespace MEFLoader
     {
         
         private readonly Dictionary<string, CompositionHost> dic = new Dictionary<string, CompositionHost>();
-        private static Lazy<CatalogLoader> Instance = new Lazy<CatalogLoader>();
+        private static readonly Lazy<CatalogLoader> Instance = new Lazy<CatalogLoader>();
+
+        /// <summary>
+        /// 单例
+        /// </summary>
         public static CatalogLoader Singleton
         {
             get { return Instance.Value; }
@@ -106,7 +110,6 @@ namespace MEFLoader
 
             dic[type.FullName] = container;
         }
-
 
         /// <summary>
         /// 通用加载
@@ -221,18 +224,6 @@ namespace MEFLoader
             }
             return lst;
         
-        }
-
-        public List<object> GetList(string typeName)
-        {
-            List<object> lst = new List<object>();
-            Type type = Type.GetType(typeName);
-            CompositionHost container = null;
-            if (dic.TryGetValue(typeName, out container))
-            {
-                lst.AddRange(container.GetExports(type));
-            }
-            return lst;
         }
 
     }

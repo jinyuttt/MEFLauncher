@@ -51,47 +51,52 @@ namespace WPFDocument
         /// <param name="control"></param>
         public void AddControl(string title, FrameworkElement control,string imageSource)
         {
-      
-            Grid grid = new Grid();
-            Frame frame = new Frame();
-            frame.Margin= new Thickness(2, 1, 2, 1);
-            grid.Children.Add(frame);
-            if (control != null)
+            if (control is Window)
             {
-                control.Margin= new Thickness(2, 1, 2, 1);
-                control.HorizontalAlignment = HorizontalAlignment.Stretch;
-                control.VerticalAlignment = VerticalAlignment.Stretch;
-                frame.Navigate(control);
+                Window cur = control as Window;
+                cur.Show();
             }
             else
             {
-                Button button = new Button() { Content = "测试" };
-                button.Background = new LinearGradientBrush(Colors.LightBlue, Colors.SlateBlue, 90);
-                frame.Navigate(button);
+               
+                Frame frame = new Frame();
+                if (control != null)
+                {
+                    control.Margin = new Thickness(2, 1, 2, 1);
+                    control.HorizontalAlignment = HorizontalAlignment.Stretch;
+                    control.VerticalAlignment = VerticalAlignment.Stretch;
+                    frame.Navigate(control);
+                }
+                else
+                {
+                    Label button = new Label() { Content = "没有插件填充" };
+                    button.Background = new LinearGradientBrush(Colors.LightBlue, Colors.SlateBlue, 90);
+                    frame.Navigate(button);
+                }
+                TabItem item = new TabItem
+                {
+                    Content = frame,
+                    Header = title
+                };
+
+                item.Height = 83;
+                Thickness cur = new Thickness(tab.Items.Count * 74+5, 0, 0, 0);
+                item.Margin = cur;
+                item.Width = 74;
+                Style myStyle = (Style)this.FindResource("TabItemStyle");//TabItemStyle 这个样式是引用的资源文件中的样式名称
+                item.Style = myStyle;
+                if (!string.IsNullOrEmpty(imageSource))
+                {
+                    ImageBrush imageBrush = new ImageBrush(new BitmapImage(new Uri(imageSource, UriKind.Relative)));
+                    item.Background = imageBrush;
+                }
+                else
+                {
+                    ImageBrush imageBrush = new ImageBrush(new BitmapImage(new Uri("skin/ico/ico_PluginCleaner.png", UriKind.Relative)));
+                    item.Background = imageBrush;
+                }
+                tab.Items.Add(item);
             }
-            TabItem item = new TabItem
-            {
-                Content = grid,
-                Header = title
-            };
-           
-            item.Height = 83;
-            Thickness cur = new Thickness(tab.Items.Count * 74, 0, 0, 0);
-            item.Margin = cur;
-            item.Width = 74;
-            Style myStyle = (Style)this.FindResource("TabItemStyle");//TabItemStyle 这个样式是引用的资源文件中的样式名称
-            item.Style = myStyle;
-            if (!string.IsNullOrEmpty(imageSource))
-            {
-                ImageBrush imageBrush = new ImageBrush(new BitmapImage(new Uri(imageSource, UriKind.Relative)));
-                item.Background = imageBrush;
-            }
-            else
-            {
-                ImageBrush imageBrush = new ImageBrush(new BitmapImage(new Uri("skin/ico/ico_PluginCleaner.png", UriKind.Relative)));
-                item.Background = imageBrush;
-            }
-            tab.Items.Add(item);
         }
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

@@ -34,7 +34,7 @@
                     <TabItem.Background>
                         <ImageBrush ImageSource="skin/ico/ico_Examine.png"/>
                     </TabItem.Background>
-                    <Grid Margin="0" Background="{DynamicResource MyBrush}">
+                    <Grid Margin="0" Background="{DynamicResource DocumentBrush}">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="0.052*"/>
                             <ColumnDefinition Width="0.9*"/>
@@ -55,10 +55,10 @@
                                 </LinearGradientBrush>
                             </Border.Background>
                         </Border>
-                        <Button Content="新功能推荐" HorizontalAlignment="Left" Margin="-40,8.865,0,8.865" Style="{DynamicResource MyButton}" Width="101" Height="25" Grid.Column="1"/>
-                        <Button Content="常用功能推荐" HorizontalAlignment="Left" Margin="76,8.865,0,8.865" Style="{DynamicResource MyButton}" Width="101" Height="25" Grid.Column="1"/>
-                        <Button Content="系统检测" HorizontalAlignment="Left" Margin="196,8.865,0,8.865" Style="{DynamicResource MyButton}" Width="101" Height="25" Grid.Column="1"/>
-                        <Button Content="软件管理" HorizontalAlignment="Left" Margin="316,8.865,0,8.865" Style="{DynamicResource MyButton}" Width="101" Height="25" Grid.Column="1"/>
+                        <Button Content="新功能推荐" HorizontalAlignment="Left" Margin="-40,8.865,0,8.865" Style="{DynamicResource DocumentButton}" Width="101" Height="25" Grid.Column="1"/>
+                        <Button Content="常用功能推荐" HorizontalAlignment="Left" Margin="76,8.865,0,8.865" Style="{DynamicResource DocumentButton}" Width="101" Height="25" Grid.Column="1"/>
+                        <Button Content="系统检测" HorizontalAlignment="Left" Margin="196,8.865,0,8.865" Style="{DynamicResource DocumentButton}" Width="101" Height="25" Grid.Column="1"/>
+                        <Button Content="软件管理" HorizontalAlignment="Left" Margin="316,8.865,0,8.865" Style="{DynamicResource DocumentButton}" Width="101" Height="25" Grid.Column="1"/>
                         <Border BorderBrush="#CCFFFFFF" BorderThickness="1,0,0,0" HorizontalAlignment="Left" Margin="306,7.372,0,7.25" Width="2.5" Background="#FFB6B6B6" Grid.Column="1"/>
                         <Border BorderBrush="#CCFFFFFF" BorderThickness="1,0,0,0" HorizontalAlignment="Left" Margin="186,7.372,0,7.25" Width="2.5" Background="#FFB6B6B6" Grid.Column="1"/>
                         <Border BorderBrush="#CCFFFFFF" BorderThickness="1,0,0,0" HorizontalAlignment="Left" Margin="67.75,7.372,0,7.25" Width="2.5" Background="#FFB6B6B6" Grid.Column="1"/>
@@ -154,35 +154,6 @@
                             </Button>
                         </UniformGrid>
                     </Grid>
-                </TabItem>
-                <TabItem Header="查杀木马" Height="83" Margin="80,0,0,0" Width="74" Style="{DynamicResource TabItemStyle}">
-                    <TabItem.Background>
-                        <ImageBrush ImageSource="skin/ico/ico_dsmain.png"/>
-                    </TabItem.Background>
-                    <Grid Background="{DynamicResource MyBrush}"/>
-                </TabItem>
-                <TabItem Header="清理插件" Height="83" Margin="155,0,0,0" Width="74" Style="{DynamicResource TabItemStyle}">
-                    <TabItem.Background>
-                        <ImageBrush ImageSource="skin/ico/ico_PluginCleaner.png"/>
-                    </TabItem.Background>
-                    <Grid Background="{DynamicResource MyBrush}">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="43*"/>
-                            <ColumnDefinition Width="795*"/>
-                        </Grid.ColumnDefinitions>
-                    </Grid>
-                </TabItem>
-                <TabItem Header="修复漏洞" Height="83" Margin="230,0,0,0" Width="74" Style="{DynamicResource TabItemStyle}">
-                    <TabItem.Background>
-                        <ImageBrush ImageSource="skin/ico/ico_VulRepair.png"/>
-                    </TabItem.Background>
-                    <Grid Background="{DynamicResource MyBrush}"/>
-                </TabItem>
-                <TabItem Header="清理垃圾" Height="83" Margin="305,0,0,0" Width="74" Style="{DynamicResource TabItemStyle}">
-                    <TabItem.Background>
-                        <ImageBrush ImageSource="skin/ico/ico_RubbishCleaner.png"/>
-                    </TabItem.Background>
-                    <Grid Background="{DynamicResource MyBrush}"/>
                 </TabItem>
               
             </TabControl>

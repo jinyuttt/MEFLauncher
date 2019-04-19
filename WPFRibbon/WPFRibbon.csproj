@@ -57,6 +57,9 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TabControlEx.xaml.cs">
+      <DependentUpon>TabControlEx.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ValueConver.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -109,6 +112,10 @@
     <Page Include="Styles\Treeview.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TabControlEx.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -173,6 +180,17 @@
     <Resource Include="Images\rdo_yes.png" />
     <Resource Include="Images\search.png" />
     <Resource Include="Images\UpLoad.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\back_alt.png" />
+    <Resource Include="Images\close1.png" />
+    <Resource Include="Images\close_delete.png" />
+    <Resource Include="Images\close_delete_2.png" />
+    <Resource Include="Images\forward_alt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\pre.png" />
+    <Resource Include="Images\next.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -11,7 +11,7 @@
         <XmlDataProvider  x:Key="pXML" XPath="/Products"  IsAsynchronous="True" Source="store.xml"></XmlDataProvider>
     </Page.Resources>
     <Grid>
-        <ListBox x:Name="lstXML" DisplayMemberPath="ModelName" ItemsSource="{Binding Source={StaticResource pXML},XPath=Product}" HorizontalAlignment="Stretch" Height="422" Margin="10,0,0,0" VerticalAlignment="Stretch" Width="699"/>
+        <ListBox x:Name="lstXML" DisplayMemberPath="ModelName" ItemsSource="{Binding Source={StaticResource pXML},XPath=Product}" HorizontalAlignment="Stretch"  Margin="10,10,10,10" VerticalAlignment="Stretch" />
         <Button Content="Button" HorizontalAlignment="Left" Margin="725,10,0,1" VerticalAlignment="Top" Width="75"/>
     </Grid>
 </Page>

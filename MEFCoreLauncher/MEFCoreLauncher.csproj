@@ -5,7 +5,16 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>E:\study\Frame\Frame\MEFLauncher\bin\Debug\</OutputPath>
+  </PropertyGroup>
+
   <ItemGroup>
+    <PackageReference Include="Microsoft.Composition" Version="1.0.31" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LauncherCommon\LauncherCommon.csproj" />
     <ProjectReference Include="..\MEFLib\MEFLib.csproj" />
     <ProjectReference Include="..\MEFLoader\MEFLoader.csproj" />
   </ItemGroup>

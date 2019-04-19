@@ -117,25 +117,28 @@ namespace WPFRibbon
             }
             else
             {
-                Grid grid = new Grid();
-
-                Frame frame = new Frame
+                if (control is Window)
                 {
-                    Margin = new Thickness(5, 5, 5, 5)
-                };
-                frame.Navigate(control);
-                grid.Children.Add(frame);
-                TabItemClose item = new TabItemClose()
+                    Window cur = control as Window;
+                    cur.Show();
+                }
+                else
                 {
-                    Content = grid,
-                    Header = title
-                };
-               // item.Style = (Style)this.FindResource("TabItemStyle");
-               // item.Height = 20;
-              //  item.Width = 100;
-              
-                grdTab.Items.Add(item);
-                grdTab.SelectedItem = item;
+                    Grid grid = new Grid();
+                    Frame frame = new Frame
+                    {
+                        Margin = new Thickness(5, 5, 5, 5)
+                    };
+                    frame.Navigate(control);
+                    grid.Children.Add(frame);
+                    TabItem item = new TabItem()
+                    {
+                        Content = grid,
+                        Header = title
+                    };
+                    grdTab.Items.Add(item);
+                    grdTab.SelectedItem = item;
+                }
             }
         }
 

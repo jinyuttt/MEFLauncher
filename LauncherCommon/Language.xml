@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Language>
+  <zh-CN>
+    <Key1>插件</Key1>
+    <Key2>文盲</Key2>
+  </zh-CN>
+  <en-US>
+    <Key1>Plugin</Key1>
+    <Key2>WM</Key2>
+  </en-US>
+</Language>

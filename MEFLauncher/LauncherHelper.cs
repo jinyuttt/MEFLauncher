@@ -34,10 +34,26 @@ namespace MEFLauncher
     public class LauncherHelper
     {
         static  AutoResetEvent resetEvent = null;
+        /// <summary>
+        /// 配置文件内容
+        /// </summary>
         static Dictionary<string, string> dicConfig = new Dictionary<string, string>();
+
+        /// <summary>
+        /// 配置插件名称
+        /// </summary>
         static Dictionary<string, string> dicPlugin = new Dictionary<string, string>();
+         
+        /// <summary>
+        /// 主插件
+        /// </summary>
         static IMainView MainView;
+
+        /// <summary>
+        /// 当前插件实例
+        /// </summary>
         static Dictionary<string, object> dicPluginObj = new Dictionary<string, object>();
+        static string[] lstPluginPath = null;
 
         /// <summary>
         /// 启动插件
@@ -48,7 +64,7 @@ namespace MEFLauncher
             Read();
             PluginManager.Register(GetPlugin);
             PluginManager.RegisterConfig(GetConfig);
-
+            PluginDirectory();
             Thread plugin = new Thread(RunPlugin);
             plugin.IsBackground = true;
             plugin.Name = "Plugin";
@@ -114,13 +130,58 @@ namespace MEFLauncher
         }
 
         /// <summary>
+        /// 处理路径
+        /// </summary>
+        static void PluginDirectory()
+        {
+            string path = null;
+            if (dicConfig.ContainsKey("PluginPath"))
+            {
+                path = dicConfig["PluginPath"];
+                if (path != null)
+                {
+                    path = path.Trim();
+                }
+            }
+            if (!string.IsNullOrEmpty(path))
+            {
+                List<string> lst = new List<string>();
+                string[]temp = path.Split(',');
+                foreach(string k in temp)
+                {
+                    if(string.IsNullOrEmpty(k)||k.Trim().Length==0)
+                    {
+                        continue;
+                    }
+                    if (Directory.Exists(k)|| Directory.Exists(Path.Combine(AppDomain.CurrentDomain.BaseDirectory,k)))
+                    {
+                        lst.Add(k);
+                    }
+                   
+                }
+                if(lst.Count>0)
+                {
+                    lstPluginPath = lst.ToArray();
+                }
+            }
+            
+        }
+
+        /// <summary>
         /// 加载业务插件
         /// </summary>
         static void LoadPlugin()
         {
 
+            if (lstPluginPath == null)
+            {
+                CatalogLoader.Singleton.DefaultLoader<IPlugin>();
 
-            CatalogLoader.Singleton.DefaultLoader<IPlugin>();
+            }
+            else
+            {
+                CatalogLoader.Singleton.DirectoryCatalogLoader<IPlugin>(lstPluginPath);
+            }
             var plugins = CatalogLoader.Singleton.GetList<IPlugin>();
             if (plugins != null)
             {
@@ -133,8 +194,6 @@ namespace MEFLauncher
 
                 }
             }
-            //
-
         }
 
        /// <summary>
@@ -143,7 +202,14 @@ namespace MEFLauncher
         static void LoadView()
         {
             //
-            CatalogLoader.Singleton.DefaultLoader<IView>();
+            if (lstPluginPath == null)
+            {
+                CatalogLoader.Singleton.DefaultLoader<IView>();
+            }
+            else
+            {
+                CatalogLoader.Singleton.DirectoryCatalogLoader<IView>(lstPluginPath);
+            }
             var views = CatalogLoader.Singleton.GetList<IView>();
             if (views != null)
             {
@@ -160,7 +226,14 @@ namespace MEFLauncher
         /// </summary>
         static void StartArgs()
         {
-            CatalogLoader.Singleton.DefaultLoader<IArgs>();
+            if (lstPluginPath == null)
+            {
+                CatalogLoader.Singleton.DefaultLoader<IArgs>();
+            }
+            else
+            {
+                CatalogLoader.Singleton.DirectoryCatalogLoader<IArgs>(lstPluginPath);
+            }
             var plugins = CatalogLoader.Singleton.GetList<IArgs>();
 
             if (plugins != null)
