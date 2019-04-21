@@ -72,7 +72,7 @@
                         <Label Content="新功能推荐" HorizontalAlignment="Left" Margin="-23,23,0,1.667" Grid.Row="1" Width="94.25" FontSize="14.667" FontWeight="Bold" Grid.Column="1"/>
                         <UniformGrid Margin="0" Grid.Row="2" Rows="3" Columns="6" Grid.Column="1">
                             <Button Content="测试按钮" HorizontalAlignment="Left" Height="82" Style="{DynamicResource Buttonlist}" VerticalAlignment="Top" Width="78">
-                              
+
                             </Button>
                             <Button Content="测试按钮" HorizontalAlignment="Left" Height="82" Style="{DynamicResource Buttonlist}" VerticalAlignment="Top" Width="78">
                                 <Button.Background>
@@ -161,13 +161,6 @@
                             </Button>
                         </UniformGrid>
                     </Grid>
-                </TabItem>
-                <TabItem Header="ces" Height="83" Margin="79,0,0,0" Width="74" Style="{DynamicResource TabItemStyle}">
-                    <WindowsFormsHost>
-                        <winforms:Label Text="sssss" Dock="Fill">
-                          
-                        </winforms:Label>
-                    </WindowsFormsHost>
                 </TabItem>
             </TabControl>
             <Label x:Name="labTitle" Content="多功能插件管理 V1.0.0.0" HorizontalAlignment="Left" Width="172" Foreground="#A794E9FF" FontWeight="Bold" VerticalAlignment="Top"/>
