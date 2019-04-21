@@ -2,8 +2,9 @@
 using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Forms.Integration;
 using System.Windows.Media.Imaging;
-using WPFRibbon.Controls;
+using WinForms= System.Windows.Forms;
 namespace WPFRibbon
 {
     /// <summary>
@@ -124,16 +125,15 @@ namespace WPFRibbon
                 }
                 else
                 {
-                    Grid grid = new Grid();
+                   
                     Frame frame = new Frame
                     {
                         Margin = new Thickness(5, 5, 5, 5)
                     };
                     frame.Navigate(control);
-                    grid.Children.Add(frame);
                     TabItem item = new TabItem()
                     {
-                        Content = grid,
+                        Content = frame,
                         Header = title
                     };
                     grdTab.Items.Add(item);
@@ -141,6 +141,44 @@ namespace WPFRibbon
                 }
             }
         }
+
+        /// <summary>
+        /// 添加界面
+        /// </summary>
+        /// <param name="control"></param>
+        public void AddControl(string title, WinForms.Control control)
+        {
+            if (control == null)
+            {
+                MessageBox.Show("没有配置该插件", "提示");
+            }
+            else
+            {
+                if (control is WinForms.Form)
+                {
+                    WinForms.Form frm = control as WinForms.Form;
+                    if (frm.TopLevel)
+                    {
+                        frm.Show();
+                        return;
+                    }
+                }
+                //
+                WindowsFormsHost formsHost = new WindowsFormsHost
+                {
+                    Child = control
+                };
+                TabItem item = new TabItem()
+                {
+                    Content = formsHost,
+                    Header = title
+                };
+                control.Show();
+                grdTab.Items.Add(item);
+                grdTab.SelectedItem = item;
+            }
+        }
+
 
         /// <summary>
         /// 按钮事件
@@ -182,7 +220,15 @@ namespace WPFRibbon
         internal void AddControl(string title,object control)
         {
             FrameworkElement  element=control as FrameworkElement ;
-            AddControl(title,element);
+            if (element == null)
+            {
+                WinForms.Control win = control as WinForms.Control;
+                AddControl(title, win);
+            }
+            else
+            {
+                AddControl(title, element);
+            }
         }
     }
 }

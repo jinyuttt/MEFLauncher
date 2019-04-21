@@ -81,7 +81,15 @@ namespace MEFLauncher
                 try
                 {
                     IMainView mainView = null;
-                    CatalogLoader.Singleton.DefaultLoader<IMainView>();
+                    if(lstPluginPath==null)
+                    {
+                        CatalogLoader.Singleton.DefaultLoader<IMainView>();
+                    }
+                    else
+                    {
+                        CatalogLoader.Singleton.DirectoryCatalogLoader<IMainView>(lstPluginPath);
+                    }
+                  
                     var objs = CatalogLoader.Singleton.GetList<IMainView>();
                     plugin.Start();//启动线程加载其它插件
                     if (objs.Count == 1)
@@ -92,7 +100,11 @@ namespace MEFLauncher
                     {
                         //Ribbon Document
                         //
-                        var obj = objs.Find(p => p.ViewName == view);
+                        if(!string.IsNullOrEmpty(view))
+                        {
+                            view = view.Trim();
+                        }
+                        var obj = objs.Find(p => p.ViewName.Trim() == view);
                         mainView = obj;
 
                     }

@@ -832,7 +832,7 @@
           <IsVisible>true</IsVisible>
         </NodeGroup>
       </Groups>
-      <PluginName>Test</PluginName>
+      <PluginName>TestForm</PluginName>
       <IsEnabled>true</IsEnabled>
       <IsVisible>true</IsVisible>
     </NodeTab>

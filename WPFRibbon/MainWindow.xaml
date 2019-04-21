@@ -4,8 +4,8 @@
         xmlns:ribbon="clr-namespace:Microsoft.Windows.Controls.Ribbon;assembly=RibbonControlsLibrary"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:contorls="clr-namespace:WPFRibbon.Controls"
         xmlns:wpfribbon="clr-namespace:WPFRibbon"
+        xmlns:winforms="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms" 
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Window.Resources>
@@ -59,6 +59,7 @@
             <wpfribbon:TabControlEx x:Name="grdTab">
               
             </wpfribbon:TabControlEx>
+          
         </Grid>
     </Grid>
 </Window>

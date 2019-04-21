@@ -15,7 +15,6 @@
 //----------------------------------------------------------------*/
 #endregion
 
-using System;
 using System.IO;
 using CommonTools;
 using LauncherCommon;
@@ -42,7 +41,8 @@ namespace WPFDocument
 
         public DocumentPluginMain()
         {
-            frmMain = new MainWindow();
+          
+             frmMain = new MainWindow();
             frmMain.Closed += FrmMain_Closed;
             Init();
 
@@ -80,6 +80,10 @@ namespace WPFDocument
             }
         }
 
+        /// <summary>
+        /// 初始化插件
+        /// </summary>
+        /// <param name="config"></param>
         private void PluginInit(PluginConfig config)
         {
             foreach (var item in config.Tab)

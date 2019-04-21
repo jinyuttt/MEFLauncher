@@ -4,5 +4,6 @@ PluginConfig=documentconfig.xml
 # Document Ribbon
 MainPlugin=Document
 Title=插件框架
+PluginPath=Modules
 PluginArgsOrder=
 PluginBusinessOrder=

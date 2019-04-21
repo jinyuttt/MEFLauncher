@@ -8,7 +8,7 @@
       <IsVisible>false</IsVisible>
     </NodeTab>
     <NodeTab 面板名称="测试1">
-      <Plugin>PluginName</Plugin>
+      <Plugin>TestForm</Plugin>
       <ImagePath>Imge</ImagePath>
       <IsEnabled>false</IsEnabled>
       <IsVisible>false</IsVisible>
