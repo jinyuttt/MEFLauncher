@@ -1,8 +1,0 @@
-﻿#Ribbon 对应 ribbonconfig.xml
-#Document 对应 documentconfig.xml
-PluginConfig=documentconfig.xml
-# Document Ribbon
-MainPlugin=Document
-Title=插件框架
-PluginArgsOrder=
-PluginBusinessOrder=
